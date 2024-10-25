@@ -21,4 +21,5 @@ public class Variable1 {
 		
 	}// main
 
+
 }// class

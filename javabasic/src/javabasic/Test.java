@@ -14,4 +14,5 @@ public class Test {
 		int j = integer;			// Unwrapping 참조타입에서 기본타입의 값을 꺼냄
 		
 	}// main
+	
 }// class
