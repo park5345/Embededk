@@ -8,8 +8,12 @@ public class Testtest {
 		
 		for ( i = 0; i < 100; i++) {
 			
+			i = 50;
+			break;
 			
 		}
+		
+		System.out.println(i);
 	}
 
 }
