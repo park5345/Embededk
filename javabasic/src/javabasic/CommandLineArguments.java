@@ -2,6 +2,7 @@ package javabasic;
 
 	public class CommandLineArguments {
 		
+		
 		// String[] args : 명령행 인자 배열
 		// main method 실행시 main method 에 전달할 문자열들
 		public static void main(String[] args) {
