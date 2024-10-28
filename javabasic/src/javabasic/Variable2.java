@@ -40,6 +40,7 @@ public class Variable2 {
 		// main method 의 지역 변수
 		// main method 가 호출되면 메모리에 생겼다가 main method 가 종료되면 소멸
 		int li = 3;
+		System.out.println(li);
 	
 	}// main
 	
@@ -48,6 +49,9 @@ public class Variable2 {
 		// add method 의 지역변수
 		int sum = i + j;
 		return sum;
-	}
+		//System.out.println(li); 			오류
+		
+		//System.out.println(sum);		오류
+	}// add method 
 
 }// class
