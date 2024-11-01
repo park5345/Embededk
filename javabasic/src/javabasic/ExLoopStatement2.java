@@ -26,7 +26,7 @@ public class ExLoopStatement2 {
 		}
 		System.out.println("                                             ");
 		// 별짓기 3
-		// i = 0 , j = 0 k = 0 1 2 3 4
+		// i = 0 j = 0 k = 0 1 2 3 4
 		// i = 1 j = 0 1 k = 0 1 2 3
 		// i = 2 j = 0 1 2 k = 0 1 2 
 		// i = 3 j = 0 1 2 3 k = 0 1
@@ -78,7 +78,8 @@ public class ExLoopStatement2 {
 		// 별짓기 7
 		for (int i = 0; i < 5; i++) {
 			for (int j = 0; j < 5; j++) {
-				if (i == 1 && j == 2) {System.out.print("  ");}
+				if (i == 1 && j == 2) 
+				{System.out.print("  ");}
 				else if (i == 2 && j <= 3 && j >=1 && j !=2 ) 
 				{System.out.print("  ");}
 				else if (i==3 && j ==2) 
@@ -88,8 +89,6 @@ public class ExLoopStatement2 {
 			}
 			System.out.println();
 		}
-		
-	
 	}// main
 }// class
 

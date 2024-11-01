@@ -1,6 +1,6 @@
 package javabasic;
 
-public class Exoperator2 {
+public class ExOperator2 {
 	
 	public static void main(String[] args) {
 		
