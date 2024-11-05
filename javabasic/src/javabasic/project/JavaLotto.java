@@ -27,62 +27,73 @@ public class JavaLotto {
 	public static void main(String[] args) {
 
 		// 랜덤 정수 추출
-		// Math.random() : 0.0<= n < 1.0 범위의 실수를 반환하는 메소드
-		// int randomNumber = (int)(Math.random()*44)+1; // 1~10
-		int[] randomNumber = { (int) (Math.random() * 44) + 1,
-				(int) (Math.random() * 44) + 1, (int) (Math.random() * 44) + 1,
-				(int) (Math.random() * 44) + 1, (int) (Math.random() * 44) + 1, 
-				(int) (Math.random() * 44) + 1, (int) (Math.random() * 44) + 1 };
-		int[] userNumber = new int[5];
-		int count = 0;
-		int bonusNumber = 0;
-		int randomNum = randomNumber.length-1;
-		bonusNumber = randomNumber[6];
-		// 스캐너 생성
-		Scanner scanner = new Scanner(System.in);
-		// 한 라인의 문자열 입력
-		System.out.println("로또 번호 6개를 입력해 주세요.");
-		String line = scanner.nextLine();
-		System.out.print("당첨 번호는 ");
-		for (int i = 0; i < randomNumber.length; i++) {
-			for (int j = 0; j < i; j++ ) {
-				if (randomNumber[i] != randomNumber[j]) {
-					break;
-				}else 
+			// Math.random() : 0.0<= n < 1.0 범위의 실수를 반환하는 메소드
+			// int randomNumber = (int)(Math.random()*44)+1; // 1~10
+			int[] randomNumber = new int[6];
+			int bonusNumber = (int)((Math.random()*44)+1);
+			int randomNum = randomNumber.length;
+			int count = 0;
+			boolean check = false;
+				// 스캐너 생성
+			Scanner scanner = new Scanner(System.in);
+				// 한 라인의 문자열 입력
+			System.out.println("로또 번호 6개를 입력해 주세요.");
+			String line = scanner.nextLine();
+			System.out.print("당첨 번호는 ");
+			for (int i = 0; i < randomNumber.length; i++) {
+				randomNumber[i] = (int)((Math.random()*44)+1);
+				for (int j = 0; j < i; j ++) {
+					if (randomNumber[i] == randomNumber[j]) {
+						i--;
+					}
+				}
+				if (bonusNumber == randomNumber[i]) {
 					i--;
+					}
+				}
+			for( int i = 0; i < randomNum; i++ ) {
+				
+			System.out.print(randomNumber[i] + " ");
 			}
-			if ( i < randomNum) {
-			System.out.print( randomNumber[i] + " ");
+			System.out.println("보너스 번호는 " + bonusNumber);
+			// 문자열을 공백문자 기준으로 토크나이징 (토큰으로 분리)
+			StringTokenizer st = new StringTokenizer(line);
+			// 토큰이 있는 동안 반복
+			while (st.hasMoreTokens()) {
+				// 토큰 하나씩 가져와서 출력
+				String token = st.nextToken();
+				//userNumber[i] = Integer.parseInt(st.nextToken());
+				System.out.print(token + " ");
 			}
-		}
-		System.out.println("보너스 번호는 " + bonusNumber);
-		// 문자열을 공백문자 기준으로 토크나이징 (토큰으로 분리)
-		StringTokenizer st = new StringTokenizer(line);
-		// 토큰이 있는 동안 반복
-		while (st.hasMoreTokens()) {
-			// 토큰 하나씩 가져와서 출력
-			String token = st.nextToken();
-			//userNumber[i] = Integer.parseInt(st.nextToken());
-			System.out.print(token + " ");
-		}
-		// 당첨 규칙에 따른 사용자 등수
-		for ( int i = 0 ; i < randomNum ; i++) {
-				if (randomNumber[i] == userNumber[i] ) {
-					count++;
-					break;
+			// 당첨 규칙에 따른 사용자 등수
+			for (int i = 0; i < randomNum; i++) {
+				for(int j = 0; j <randomNum; j++) {
+					if(randomNumber[i] == randomNumber[j]) {
+						count++;
+						break;
+					}
+				}
+			//보너스번호 맞는것 찾기
+				if(!check) {
+					if(randomNumber[i] == bonusNumber) {
+						check = true;
+					}
 				}
 			}
-		}
-		//if ( token == bonusNumber && count == 5) {
-	//		System.out.println("2등");		}
-		switch (count) {
-			case 6 : System.out.println("1등");		break;
-			case 5 : System.out.println("3등"); 	 	break;
-			case 4 : System.out.println("4등"); 		break;
-			case 3 : System.out.println("5등");		break;
-			default : System.out.println("꽝");   		break; 
-		}
-		
-		scanner.close();
-	}// main
-}// class
+			if(count == 6) {
+				System.out.println("1등");
+			}else if(count == 5 && check) {
+				System.out.println("2등");
+			}else if(count == 5 ) {
+				System.out.println("3등");
+			}else if(count == 4 ) {
+				System.out.println("4등");
+			}else if(count == 3 ) {
+				System.out.println("5등");
+			}else {
+				System.out.println("낙첨");
+			}			
+	
+			scanner.close();
+	}
+}
