@@ -42,7 +42,7 @@ public class JavaLotto {
 			String line = scanner.nextLine();
 			System.out.print("당첨 번호는 ");
 			// 문자열을 공백문자 기준으로 토크나이징 (토큰으로 분리)
-			for (int i = 0; i < randomNumber.length; i++) {
+			for (int i = 0; i < randomNum; i++) {
 				randomNumber[i] = (int)((Math.random()*44)+1);
 				for (int j = 0; j < i; j ++) {
 					if (randomNumber[i] == randomNumber[j]) {
@@ -67,7 +67,8 @@ public class JavaLotto {
 				String token = st.nextToken();
 				System.out.print(token + " ");
 			}
-			// 당첨 규칙에 따른 사용자 등수
+			System.out.println(lotto);
+				// 당첨 규칙에 따른 사용자 등수
 			for (int i = 0; i < randomNum; i++) {
 				for(int j = 0; j <randomNum; j++) {
 					if(lotto == randomNumber[i]) {
